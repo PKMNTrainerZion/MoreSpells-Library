@@ -1,0 +1,28 @@
+SUSIE:
+
+MoodBuster - Hits one enemy 7 times with reduced damage. Can do 623 max damage with starting gear.
+
+YellowBurst - Hits all enemies in battle with base RudeBuster damage. Completely ignores enemy defense.
+
+
+RALSEI:
+
+FireBloom - Deals heavy damage to a single enemy.
+
+
+NOELLE:
+
+Frostburn - Deals low ICE damage to one enemy, and inflicts BURN. BURN does damage over time for 5 turns. The damage depends on the Noelle's attack stat + 15.
+
+
+KRIS:
+
+SYMBIOSIS - As of now, this is a spell, meaning giving Kris the ability to use spells is required.
+	    Using this increases attack and defense in battle. May be slightly buggy.
+
+
+
+
+
+This is my first library, so please let me know if you find errors or even minor bugs. I will do my best to fix them. I hope you enjoy these spells!
+(I'm working on making more btw, so give me suggestions as to what you would like)

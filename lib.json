@@ -1,0 +1,13 @@
+{
+    "id": "morespells",
+    "version": "1.2.0",
+    "engineVersion": "0.10.0-dev",
+    "authors": [
+        "PKMNTrainerZion", // Programming
+        "Player912", // Original concepts
+        
+
+        // GitHub contributors
+        "Hyperboid",
+    ]
+}
