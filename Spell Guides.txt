@@ -17,7 +17,7 @@ Frostburn - Deals low ICE damage to one enemy, and inflicts BURN. BURN does dama
 
 KRIS:
 
-SYMBIOSIS - As of now, this is a spell, meaning giving Kris the ability to use spells is required.
+SYMBIOSIS - As of now, this is a spell, meaning you must either gove Kris the ability to use spells, or use it as a Power Act.
 	    Using this increases attack and defense in battle. May be slightly buggy.
 
 
