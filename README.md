@@ -1,6 +1,8 @@
 # More Spells
 
-Adds additional spells based on Player912's animations.
+Adds additional spells based on Player912's animations and PKMNTrainerZion's spell ideas.
+
+Thanks to HyperBoid's experience, the library is finally uploaded normally!
 
 To install, simply download into your mod's libraries folder. See Spell Guides.txt for information about what each spell does.
 
