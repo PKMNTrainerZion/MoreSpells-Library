@@ -5,9 +5,15 @@
     "authors": [
         "PKMNTrainerZion", // Programming
         "Player912", // Original concepts
-        
 
         // GitHub contributors
         "Hyperboid",
-    ]
+    ],
+    // Please override these in your mod.json.
+    "config": {
+        // Whether to handle custom Power Acts for all enemies.
+        // Still need to manually register the act using this init code:
+        // `self:registerAct("Symbiosis", "ATK &\nDEF up", {}, 75)`
+        "global_poweracts": false,
+    },
 }
