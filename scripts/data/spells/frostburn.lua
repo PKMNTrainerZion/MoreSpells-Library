@@ -73,10 +73,7 @@ function frostburn:onCast(user, target)
 
         local damage = self:getDamage(user, target)
         target:hurt(damage, user)
-        -- TODO: Make burn mechanic part of the library so we don't need this
-        if target.addBurn then
-            target:addBurn(5, damage, nil, user)
-        end
+        target:addBurn(user, 5)
 
         Game.battle:finishActionBy(user)
 

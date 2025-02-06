@@ -33,6 +33,9 @@ function EnemyBattler:onTurnStart(...)
 end
 
 function EnemyBattler:addBurn(battler, turns)
+    self:burnFlash()
+    self:statusMessage("msg", "burn")
+
     local already = false
     for i,v in pairs(self.burners) do
         if v.chara.id == battler.chara.id then
