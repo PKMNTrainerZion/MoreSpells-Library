@@ -9,6 +9,7 @@
         // GitHub contributors
         "Hyperboid",
     ],
+    "optionalDependencies": ["magical-glass"],
     // Please override these in your mod.json.
     "config": {
         // Whether to handle custom Power Acts for all enemies.

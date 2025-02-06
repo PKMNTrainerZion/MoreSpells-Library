@@ -1,0 +1,61 @@
+---@class LightEnemyBattler : LightEnemyBattler
+local LightEnemyBattler, super = Class("LightEnemyBattler")
+
+function LightEnemyBattler:init(...)
+    super.init(self, ...)
+    self.burned = false
+    self.burners = {}
+    self.burners_turns = {}
+end
+
+function LightEnemyBattler:onAct(battler, name)
+    if Kristal.getLibConfig("morespells", "global_poweracts") then
+        if name == "Symbiosis" then
+            Game.battle:powerAct("symbiosis_dw", battler, battler.chara.id, self)
+            return
+        end
+    end
+    return super.onAct(self, battler, name)
+end
+
+function LightEnemyBattler:onTurnStart(...)
+    super.onTurnStart(self, ...)
+    self.burned = #self.burners > 0
+    if self.burned then
+        for i,v in pairs(self.burners or {}) do
+            self:burnFlash()
+            self:hurt(v.chara:getStat("attack")+15, v)
+            self.burners_turns[i] = self.burners_turns[i] - 1
+            if (self.burners_turns[i] or 0) <= 0 then table.remove(self.burners, i) table.remove(self.burners_turns, i) end
+            if #Game.battle:getActiveEnemies() <= 0 then Game.battle:setState("VICTORY") end
+        end
+    end
+end
+
+function LightEnemyBattler:addBurn(battler, turns)
+    self:burnFlash()
+    self:lightStatusMessage("msg", "burn", COLORS.white)
+
+    local already = false
+    for i,v in pairs(self.burners) do
+        if v.chara.id == battler.chara.id then
+            already = true
+        end
+    end
+    if not already then
+        table.insert(self.burners, battler)
+        table.insert(self.burners_turns, turns or 5)
+    end
+end
+
+function LightEnemyBattler:burnFlash()
+    local spare_flash = self:addFX(ColorMaskFX())
+    spare_flash.color = {1,0.5,0}
+    spare_flash.amount = 0.50
+
+    Game.battle.timer:during(2, function()
+        spare_flash.amount = spare_flash.amount - 0.02
+    end, function() self:removeFX(spare_flash) end)
+end
+
+return LightEnemyBattler
