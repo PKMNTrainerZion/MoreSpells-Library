@@ -49,22 +49,10 @@ function frostburn:onCast(user, target)
     Game.battle.timer:script(function(wait)
         wait(1/30)
         Assets.playSound("icespell")
-        particles[1] = createParticle(x-35, y-30)
-        wait(1/30)
-        particles[2] = createParticle(x-25, y-20)
-        wait(1/30)
-        particles[3] = createParticle(x-15, y-10)
-        wait(1/30)
-        particles[4] = createParticle(x-5, y)
-        wait(1/30)
-        particles[5] = createParticle(x+5, y)
-        wait(1/30)
-        particles[6] = createParticle(x+15, y+10)
-        wait(1/30)
-        particles[7] = createParticle(x+25, y+20)
-        wait(1/30)
-        particles[8] = createParticle(x+35, y+30)
-        wait(1/30)
+        for i=1,7 do
+            particles[i] = createParticle((x-35) + (i*10), (y-30) + (i*10))
+            wait(1/30)
+        end
         Game.battle:addChild(IceSpellBurst(x, y))
         for _,particle in ipairs(particles) do
             for i = 0, 8 do
@@ -85,10 +73,10 @@ function frostburn:onCast(user, target)
 
         local damage = self:getDamage(user, target)
         target:hurt(damage, user)
-        target:addBurn(user)
-        target:burnFlash()
-
-                Game.battle:addChild(DamageNumber("msg", "burn", target.x + 4, target.y - 80 - 0, {self.getColor}))
+        -- TODO: Make burn mechanic part of the library so we don't need this
+        if target.addBurn then
+            target:addBurn(5, damage, nil, user)
+        end
 
         Game.battle:finishActionBy(user)
 
